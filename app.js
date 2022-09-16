@@ -53,15 +53,15 @@ passport.use(User.createStrategy());
 
 passport.serializeUser(function(user, cb) {
     process.nextTick(function() {
-      cb(null, { id: user.id, username: user.username });
+        cb(null, { id: user.id, username: user.username });
     });
-  });
+});
   
-  passport.deserializeUser(function(user, cb) {
+passport.deserializeUser(function(user, cb) {
     process.nextTick(function() {
-      return cb(null, user);
+        return cb(null, user);
     });
-  });
+});
 
 app.get("/", (req, res) => {
     res.render('home');
